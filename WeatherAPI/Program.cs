@@ -1,9 +1,13 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using WeatherAPI.Data;
+using WeatherAPI.Fetches;
+using WeatherAPI.Interfaces;
 using WeatherAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IWeatherService, WeatherService>();
 
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
@@ -14,8 +18,8 @@ builder.Services.AddDbContext<WeatherApiDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("weather-api"));
 });
 
-builder.Services.AddSingleton<IpDataService>();
-builder.Services.AddSingleton<WeatherDataService>();
+builder.Services.AddSingleton<UserLocationFetch>();
+builder.Services.AddSingleton<WeatherInformationFetch>();
 
 builder.Services.AddMemoryCache();
 

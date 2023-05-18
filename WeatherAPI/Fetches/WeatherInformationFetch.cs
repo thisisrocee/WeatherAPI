@@ -1,13 +1,14 @@
 ﻿using RestSharp;
+using WeatherAPI.Interfaces;
 
-namespace WeatherAPI.Services;
+namespace WeatherAPI.Fetches;
 
-public class WeatherDataService
+public class WeatherInformationFetch : IWeatherInformationFetch
 {
     private readonly RestClient _restClient;
     private readonly string _apiKey = "4aa94cbb379421a00ee63b0d411ae1e8";
 
-    public WeatherDataService()
+    public WeatherInformationFetch()
     {
         _restClient = new RestClient("https://api.openweathermap.org");
     }
