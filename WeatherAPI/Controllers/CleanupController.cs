@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WeatherAPI.Data;
 
-namespace WeatherAPI.Controllers;
+namespace WeatherAPI.Web.Controllers;
 
 [ApiController]
 [Route("cleanup-api")]
@@ -15,7 +15,7 @@ public class CleanupController : ControllerBase
     }
 
     [HttpPost("clear")]
-    public IActionResult DeleteAllWeatherHistory()
+    public IActionResult Clear()
     {
         _context.WeatherInformations
             .RemoveRange(_context.WeatherInformations);

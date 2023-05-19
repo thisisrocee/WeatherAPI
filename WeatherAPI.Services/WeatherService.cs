@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using WeatherAPI.Core.Models;
+using WeatherAPI.Core.Services;
 using WeatherAPI.Data;
-using WeatherAPI.Interfaces;
-using WeatherAPI.Models;
-using WeatherAPI.Fetches;
+using WeatherAPI.Services.Fetches;
 
 namespace WeatherAPI.Services;
 
@@ -46,7 +46,7 @@ public class WeatherService : IWeatherService
     private Location GetLocationData(string ipAddress)
     {
         var ipDataJson = _ipDataService.GetLocation(ipAddress);
-        var ipDataResponse = JsonConvert.DeserializeObject<UserLocation>(ipDataJson);
+        var ipDataResponse = JsonConvert.DeserializeObject<UserLocation>(ipDataJson.ToString());
 
         var latitude = ipDataResponse?.Latitude;
         var longitude = ipDataResponse?.Longitude;

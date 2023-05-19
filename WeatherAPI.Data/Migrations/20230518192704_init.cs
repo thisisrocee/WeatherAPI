@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace WeatherAPI.Migrations
+namespace WeatherAPI.Data.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration

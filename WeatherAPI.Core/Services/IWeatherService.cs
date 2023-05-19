@@ -1,6 +1,6 @@
-﻿using WeatherAPI.Models;
+﻿using WeatherAPI.Core.Models;
 
-namespace WeatherAPI.Interfaces;
+namespace WeatherAPI.Core.Services;
 
 public interface IWeatherService
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WeatherAPI.Interfaces;
-using WeatherAPI.Models;
+using WeatherAPI.Core.Models;
+using WeatherAPI.Data.Interfaces;
 
 namespace WeatherAPI.Data;
 

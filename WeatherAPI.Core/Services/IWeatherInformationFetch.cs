@@ -1,6 +1,4 @@
-﻿using WeatherAPI.Models;
-
-namespace WeatherAPI.Interfaces;
+﻿namespace WeatherAPI.Core.Services;
 
 public interface IWeatherInformationFetch
 {

@@ -1,13 +1,20 @@
+using System.Configuration;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using WeatherAPI.Core.Services;
 using WeatherAPI.Data;
-using WeatherAPI.Fetches;
-using WeatherAPI.Interfaces;
+using WeatherAPI.Data.Interfaces;
 using WeatherAPI.Services;
+using WeatherAPI.Services.Fetches;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IWeatherService, WeatherService>();
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .Build();
+
 
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
@@ -17,9 +24,12 @@ builder.Services.AddDbContext<WeatherApiDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("weather-api"));
 });
-
+builder.Services.AddTransient<IWeatherApiDbContext, WeatherApiDbContext>();
+builder.Services.AddTransient<IWeatherService, WeatherService>();
 builder.Services.AddSingleton<UserLocationFetch>();
 builder.Services.AddSingleton<WeatherInformationFetch>();
+builder.Services.Configure<IpDataConfig>
+    (configuration.GetSection(nameof(IpDataConfig)));
 
 builder.Services.AddMemoryCache();
 

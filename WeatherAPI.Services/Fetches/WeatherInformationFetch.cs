@@ -1,7 +1,7 @@
 ﻿using RestSharp;
-using WeatherAPI.Interfaces;
+using WeatherAPI.Core.Services;
 
-namespace WeatherAPI.Fetches;
+namespace WeatherAPI.Services.Fetches;
 
 public class WeatherInformationFetch : IWeatherInformationFetch
 {

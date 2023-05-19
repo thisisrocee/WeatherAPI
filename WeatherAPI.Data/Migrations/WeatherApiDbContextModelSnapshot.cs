@@ -7,7 +7,7 @@ using WeatherAPI.Data;
 
 #nullable disable
 
-namespace WeatherAPI.Migrations
+namespace WeatherAPI.Data.Migrations
 {
     [DbContext(typeof(WeatherApiDbContext))]
     partial class WeatherApiDbContextModelSnapshot : ModelSnapshot

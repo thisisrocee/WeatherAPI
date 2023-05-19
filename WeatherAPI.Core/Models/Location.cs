@@ -1,4 +1,4 @@
-﻿namespace WeatherAPI.Models;
+﻿namespace WeatherAPI.Core.Models;
 
 public class Location
 {

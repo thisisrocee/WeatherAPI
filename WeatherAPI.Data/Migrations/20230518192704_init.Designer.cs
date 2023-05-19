@@ -8,10 +8,10 @@ using WeatherAPI.Data;
 
 #nullable disable
 
-namespace WeatherAPI.Migrations
+namespace WeatherAPI.Data.Migrations
 {
     [DbContext(typeof(WeatherApiDbContext))]
-    [Migration("20230518095419_init")]
+    [Migration("20230518192704_init")]
     partial class init
     {
         /// <inheritdoc />

@@ -1,11 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace WeatherAPI.Core.Models;
 
-namespace WeatherAPI.Models;
-
-public class WeatherInformation
+public class WeatherInformation : Entity
 {
-    [Key] public int Id { get; set; }
-
     public int UserId { get; set; }
     public UserLocation UserLocation { get; set; }
 

@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using WeatherAPI.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using WeatherAPI.Core.Services;
 
-namespace WeatherAPI.Controllers;
+namespace WeatherAPI.Web.Controllers;
 
 [ApiController]
 [Route("weather")]

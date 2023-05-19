@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WeatherAPI.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using WeatherAPI.Core.Models;
 
-namespace WeatherAPI.Interfaces;
+namespace WeatherAPI.Data.Interfaces;
 
 public interface IWeatherApiDbContext
 {
     DbSet<WeatherInformation> WeatherInformations { get; set; }
     DbSet<UserLocation> UserLocations { get; set; }
+    public int SaveChanges();
 }
